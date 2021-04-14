@@ -24,12 +24,38 @@ $(document).ready(function(){
         },
     ];   
 
+    //inserimento todo da js
     for( var i = 0; i<list.length; i++){
         var todo = list[i];
         var item = themeplate.clone();
         item.find("em").text(todo.text);
         listHtml.append(item);
     }
+
+    //aggiunta nuovo todo da input
+    input.keyup(function(e){
+        //console.log(e.which);
+        if( e.which === 13){
+            var newToDo = input.val().trim();
+            //console.log(newToDo);
+            if( newToDo !== "" ){
+                var item = themeplate.clone();
+                item.find("em").text(newToDo);
+                listHtml.append(item);
+                input.val("");
+            }
+        }
+    });
+
+    //rimozione todo
+    $('body').on('click', '.list li span', function(){
+        $(this).parent().remove();
+    });
+
+    //indicare completamento todo
+    $('body').on('click', '.list li em', function(){
+        $(this).toggleClass("check");
+    });
 
     //FINE READY
 });

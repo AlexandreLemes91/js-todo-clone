@@ -39,6 +39,10 @@ li{
     cursor: pointer;
 }
 
+li em.check{
+    text-decoration: line-through;
+}
+
 li span{
    font-size: 30px; 
    color: red;

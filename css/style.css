@@ -36,6 +36,10 @@ li{
     align-items: center;
     list-style: none;
     font-size: 18px;
+}
+
+li em,
+li span{
     cursor: pointer;
 }
 
